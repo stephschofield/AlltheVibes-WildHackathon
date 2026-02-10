@@ -1,6 +1,24 @@
 # Changelog
 
 
+## [2026-02-10] — Changes `581c55c` to `14f351a`
+
+### 📝 Documentation
+- docs: Update README with multi-agent system documentation
+
+<details><summary>Files changed</summary>
+
+```
+ README.md | 92 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 82 insertions(+), 10 deletions(-)
+```
+</details>
+
+---
+
+
+
+
 ## [2026-02-10] — Changes `a94886b` to `d0932b5`
 
 ### 🐛 Bug Fixes
