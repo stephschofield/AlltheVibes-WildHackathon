@@ -35,109 +35,137 @@
              — Nemo (probably), Agent Swarm Edition
 ```
 
+> An automated documentation engine + chaotic agent swarm toolkit — powered by GitHub Copilot skills, prompts, and GitHub Actions.
+
 ---
 
-## How to contribute to the All the Vibes Agent Swarm
+## What is the All the Vibes Agent Swarm?
+
+This is a **collaborative, rapid-fire AI hackathon repo** where everyone contributes agents, skills, utilities, and experiments to a shared "agent swarm." There are no rules — just vibes.
+
+The repo includes:
+- **An automated documentation engine** that keeps README and CHANGELOG in sync on every push
+- **A Copilot skill** that teaches Copilot how to analyze diffs and write changelogs
+- **Fun swarm tools** like the Vibe Oracle and ASCII Swarm Mascot
+- Whatever else the swarm decides to build
+
+---
+
+## Quick Start
+
+```bash
+# Clone the repo
+git clone https://github.com/shyamsridhar123/AlltheVibes-WildHackathon.git
+cd AlltheVibes-WildHackathon
+
+# See the swarm mascot
+python swarm_mascot.py
+
+# Consult the Vibe Oracle
+python vibe_oracle.py "what should I build?"
+
+# Make changes, push, repeat every 5 minutes 🐠
+```
+
+---
+
+## 🔮 What's in the Swarm
+
+| Contribution | Author | Description | Run it |
+|---|---|---|---|
+| 📝 Auto-Changelog Engine | dc995 | Copilot skill + GitHub Action that auto-generates CHANGELOG.md on every push | Automatic on push to `main` |
+| 🔮 Vibe Oracle | ZacharyLuz | Chaotic vibe generator — ask it anything, receive cosmic wisdom | `python vibe_oracle.py "your question"` |
+| 🐝 Swarm Mascot | ZacharyLuz | ASCII art mascot + banner for the swarm | `python swarm_mascot.py` |
+| 🐠 Nemo README | ZacharyLuz | This README with Nemo ASCII art and contribution guide | You're reading it |
+
+---
+
+## How the Auto-Documentation Works
+
+### Copilot Skill
+The skill in `.vscode/skills/readme-changelog-generator/SKILL.md` teaches Copilot how to:
+- Analyze git diffs and commit messages
+- Classify changes into categories (Features, Fixes, Refactors, etc.)
+- Generate structured changelog entries
+- Update the README
+
+### Prompts
+| Prompt | What It Does |
+|--------|-------------|
+| `generate-change-readme` | Analyzes recent commits and generates a changelog entry |
+| `summarize-changes` | Finds all changes since the last changelog entry |
+| `generate-full-readme` | Creates a complete README from the current repo state |
+
+### GitHub Action
+On every push to `main`, the workflow:
+1. Reads the commit messages and diff
+2. Categorizes changes using conventional commit prefixes
+3. Generates a changelog entry with date and commit range
+4. Prepends it to `CHANGELOG.md`
+5. Commits and pushes the update
+
+---
+
+## Project Structure
+
+```
+AlltheVibes-WildHackathon/
+├── .github/
+│   ├── copilot-instructions.md              # Global Copilot behavior rules
+│   ├── instructions/
+│   │   ├── changelog-format.instructions.md # Changelog formatting rules
+│   │   └── readme-update.instructions.md    # README update rules
+│   ├── prompts/
+│   │   ├── generate-change-readme.prompt.md # Generate changelog from changes
+│   │   ├── generate-full-readme.prompt.md   # Generate a full README
+│   │   └── summarize-changes.prompt.md      # Summarize changes since last entry
+│   └── workflows/
+│       └── auto-readme.yml                  # GitHub Action for auto-changelog
+├── .vscode/
+│   └── skills/
+│       └── readme-changelog-generator/
+│           └── SKILL.md                     # Copilot skill definition
+├── CHANGELOG.md                             # Auto-generated changelog
+├── README.md                                # This file (you are here 🐠)
+├── swarm_mascot.py                          # ASCII swarm mascot
+└── vibe_oracle.py                           # Chaotic vibe generator
+```
+
+---
+
+## How to Contribute
 
 ### 1. Get the repo
-
-The shared repository is public:
-
-```
-shyamsridhar123/AlltheVibes-WildHackathon
-```
-
-You can clone it directly, or fork it if you don't have push access.
-
 ```bash
-# Clone directly
 git clone https://github.com/shyamsridhar123/AlltheVibes-WildHackathon.git
-
-# Or fork first, then clone your fork
-gh repo fork shyamsridhar123/AlltheVibes-WildHackathon --clone
 ```
+Or fork it: `gh repo fork shyamsridhar123/AlltheVibes-WildHackathon --clone`
+
+### 2. Build anything
+- ✅ Agents, skills, utilities, experiments, partial ideas, vibes
+- ❌ Nothing is off limits. No required tech stack or language.
+
+### 3. Push fast
+> **Push something every ~5 minutes.** Speed over polish.
+
+### 4. Push or PR
+- **Direct push** to `main` if you have access (no branch protection)
+- **Fork + PR** if you don't — Copilot auto-approves
+
+### 5. Don't overthink it
+No coding standards. No linting rules. No cleanup expectations. Just vibes.
 
 ---
 
-### 2. Choose how you'll contribute
+## Recent Changes
 
-You can contribute **anything**. It does not have to be a full agent.
-
-Explicitly allowed contributions:
-
-- ✅ Agents
-- ✅ Partial agents
-- ✅ Skills
-- ✅ Utilities, experiments, or helpers
-- ✅ Any code that fits the "agent swarm" idea
-
-There was **no required tech stack, language, or architecture.**
+See [CHANGELOG.md](CHANGELOG.md) for the full auto-generated history.
 
 ---
 
-### 3. Make a change quickly
+## License
 
-The live guidance emphasized **speed over polish**.
-The expectation during the session was:
-
-> **Push something every ~5 minutes**
-
-Small, rough, or experimental changes are totally fine.
-
----
-
-### 4. Push your change (two valid paths)
-
-**Option A — You have push access**
-- Commit directly to the repo
-- Push to `main` (main branch protection was intentionally off)
-
-**Option B — You do NOT have push access** (most common)
-- Fork the repo
-- Make your changes in your fork
-- Open a Pull Request back to the main repo
-
-```bash
-# Quick PR from fork
-git add -A
-git commit -m "🐝 my swarm contribution"
-git push origin main
-gh pr create --repo shyamsridhar123/AlltheVibes-WildHackathon --title "🐝 my contribution" --body "vibes"
-```
-
-This was confirmed live and reiterated in chat.
-
----
-
-### 5. Pull requests are intentionally lightweight
-
-- Pull requests are allowed
-- **GitHub Copilot** was explicitly framed as the approver
-- Human review gates were intentionally relaxed
-- Breaking changes were considered acceptable during the session
-
----
-
-### 6. Don't overthink standards
-
-The following were **explicitly not defined**:
-
-- ❌ Coding standards
-- ❌ Linting rules
-- ❌ Ownership after the session
-- ❌ Cleanup expectations
-- ❌ Final demo or success criteria
-
-**The goal was momentum and experimentation, not correctness.**
-
----
-
-## 🔮 What's in the Swarm so far
-
-| Contribution | Description | Run it |
-|---|---|---|
-| 🔮 Vibe Oracle | Chaotic vibe generator — ask it anything | `python vibe_oracle.py "your question"` |
-| 🐝 Swarm Mascot | ASCII art mascot with banner | `python swarm_mascot.py` |
+MIT
 
 ---
 
