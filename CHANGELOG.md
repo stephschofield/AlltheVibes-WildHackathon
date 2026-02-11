@@ -1,6 +1,27 @@
 # Changelog
 
 
+## [2026-02-11] — Changes `4cd89f4` to `7ffbdfc`
+
+### 🆕 New Features
+- feat: Add agent-to-agent communication (swarm) + README docs
+
+<details><summary>Files changed</summary>
+
+```
+ Backlog.md      |   4 +-
+ README.md       | 139 +++++++++-
+ agents/swarm.py | 782 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ main.py         |   6 +
+ 4 files changed, 926 insertions(+), 5 deletions(-)
+```
+</details>
+
+---
+
+
+
+
 ## [2026-02-10] — Changes `581c55c` to `14f351a`
 
 ### 📝 Documentation

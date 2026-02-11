@@ -288,14 +288,7 @@ Set `AUDIT_LOG_FILE=/path/to/audit.log` to persist security logs.
 
 ## Recent Changes
 
-See [CHANGELOG.md](CHANGELOG.md) for detailed release notes.
-
-**Latest (2026-02-10):**
-- Fixed 4 CRITICAL security vulnerabilities
-- Added security-hardened tool execution
-- Local-first Ollama architecture (Azure/OpenAI optional)
-- Pydantic input validation on all tools
-- Audit logging for tool executions
+See [CHANGELOG.md](CHANGELOG.md) for a full history of changes.
 
 ## Contributing
 
